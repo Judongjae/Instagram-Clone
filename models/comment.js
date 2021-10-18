@@ -1,10 +1,25 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const likeSchema = new Schema({
-  //스키마를 작성해 주세욥
+const commentSchema = new Schema({
+  postID: {
+    type: String,
+  },
+  replyNickname: {
+    type: String,
+  },
+  replyComment: {
+    type: String,
+  },
+  replyDate: {
+    type: String,
+  },
+  replyDel: {
+    type: Boolean,
+  },
 });
 
-const Like = mongoose.model('Like', likeSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 
-module.exports = Like;
+//virtual 주기
+module.exports = Comment;

@@ -1,10 +1,30 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const likeSchema = new Schema({
-  //스키마를 작성해 주세욥
+const postSchema = new Schema({
+  postingTitle: {
+    type: String,
+  },
+  postingAuthor: {
+    type: String,
+  },
+  postingComment: {
+    type: String,
+  },
+  postingImgUrl: {
+    type: String,
+  },
+  postingDate: {
+    type: String,
+  },
+  postingTag: {
+    type: String,
+  },
+  postingDel: {
+    type: Boolean,
+  },
 });
 
-const Like = mongoose.model('Like', likeSchema);
+const Post = mongoose.model('Post', postSchema);
 
-module.exports = Like;
+module.exports = Post;

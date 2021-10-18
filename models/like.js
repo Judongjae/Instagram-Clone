@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const likeSchema = new Schema({
-  //스키마를 작성해 주세욥
+  postID: {
+    type: String,
+  },
+  userID: {
+    type: String,
+  },
 });
 
 const Like = mongoose.model('Like', likeSchema);

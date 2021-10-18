@@ -1,10 +1,21 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const likeSchema = new Schema({
-  //스키마를 작성해 주세욥
+const authSchema = new Schema({
+  userImgUrl: {
+    type: String,
+  },
+  userEmail: {
+    type: String,
+  },
+  userNickname: {
+    type: String,
+  },
+  userPassword: {
+    type: String,
+  },
 });
 
-const Like = mongoose.model('Like', likeSchema);
+const Auth = mongoose.model('Auth', authSchema);
 
-module.exports = Like;
+module.exports = Auth;
