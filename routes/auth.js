@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 const express = require("express");
-=======
-const express = require('express');
-const { authTest, auth, register, chkLogin} = require('../controller/auth');
->>>>>>> 85e033f76bd095a890fafe73c40e9c5a41311bf3
+const { authTest, auth, register, chkLogin } = require("../controller/auth");
 const router = express.Router();
 const { authTest, auth, register, chkLogin } = require("../controller/auth");
+//이걸 왜 또 쓰신걸까?
 const authMiddleware = require("../auth-middleware/auth");
 router.get("/hi", authMiddleware, authTest);
 router.post("/register", register);
