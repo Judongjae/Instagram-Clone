@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const port = 3000;
 require('./dbConnect');
-require('dotenv').config();
+
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

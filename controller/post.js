@@ -7,7 +7,7 @@ const posting = async (req, res) => {
 
   const createPosting = new Post({
     ...postingData,
-    postingDate: 'datetest',
+    postingImgUrl: req.file.location,
     postingDel: false,
     postingDate: useDate,
   });
