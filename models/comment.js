@@ -11,6 +11,9 @@ const commentSchema = new Schema({
   replyComment: {
     type: String,
   },
+  replyDate: {
+    type: String,
+  },
   replyDel: {
     type: Boolean,
   },
