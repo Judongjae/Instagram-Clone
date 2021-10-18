@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const authSchema = new Schema({
+  userImgUrl: {
+    type: String,
+  },
   userEmail: {
     type: String,
   },
