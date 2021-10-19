@@ -1,5 +1,6 @@
 const multer = require('multer');
-const multerS3 = require('multer-s3');
+const multerS3 = require('multer-s3-transform');
+const sharp = require('sharp');
 const AWS = require('aws-sdk');
 require('dotenv').config();
 
@@ -13,10 +14,21 @@ const upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: 'halimg',
-    key: function (req, file, cb) {
-      cb(null, `${Date.now()}${file.originalname}`); //use Date.now() for unique file keys
+    shouldTransform: function (req, file, cb) {
+      cb(null, /^image/i.test(file.mimetype));
     },
+    transforms: [
+      {
+        id: 'original',
+        key: function (req, file, cb) {
+          cb(null, `${Date.now()}${file.originalname}`); //use Date.now() for unique file keys
+        },
+        transform: function (req, file, cb) {
+          //Perform desired transformations
+          cb(null, sharp().resize(600, 600).withMetadata());
+        },
+      },
+    ],
   }),
 });
-
 module.exports = upload;

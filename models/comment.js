@@ -5,6 +5,9 @@ const commentSchema = new Schema({
   postID: {
     type: String,
   },
+  replyAuthorID: {
+    type: String,
+  },
   replyNickname: {
     type: String,
   },
@@ -28,5 +31,4 @@ commentSchema.set("toJSON", {
 
 const Comment = mongoose.model('Comment', commentSchema);
 
-//virtual 주기
 module.exports = Comment;
