@@ -16,6 +16,13 @@ const authSchema = new Schema({
   },
 });
 
+authSchema.virtual('userID').get(function () {
+  return this._id.toHexString();
+});
+commentSchema.set('toJSON', {
+  virtuals: true,
+});
+
 const Auth = mongoose.model('Auth', authSchema);
 
 module.exports = Auth;
