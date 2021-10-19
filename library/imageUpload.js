@@ -9,12 +9,12 @@ const s3 = new AWS.S3({
   region: process.env.S3_BUCKET_REGION,
 });
 
-var upload = multer({
+const upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: 'halimg',
     key: function (req, file, cb) {
-      cb(null, file.originalname); //use Date.now() for unique file keys
+      cb(null, `${Date.now()}${file.originalname}`); //use Date.now() for unique file keys
     },
   }),
 });

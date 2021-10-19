@@ -19,6 +19,13 @@ const commentSchema = new Schema({
   },
 });
 
+commentSchema.virtual("replyID").get(function() {
+  return this._id.toHexString();
+});
+commentSchema.set("toJSON", {
+  virtuals: true,
+});
+
 const Comment = mongoose.model('Comment', commentSchema);
 
 //virtual 주기
