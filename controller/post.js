@@ -20,6 +20,7 @@ const posting = async (req, res) => {
   }
 };
 
+//포스트 리스트 불러오기
 const postList = async (req, res) => {
   try {
     const getAllPosts = await Post.find().sort({ _id: -1 });
@@ -29,6 +30,7 @@ const postList = async (req, res) => {
   }
 };
 
+//포스트 디테일 페이지 불러오기
 const postDetail = async (req, res) => {
   const { postID } = req.params;
   try {
@@ -39,6 +41,7 @@ const postDetail = async (req, res) => {
   }
 };
 
+//포스트 수정하기
 const postModify = async (req, res) => {
   const { PostID, postingTitle, postingComment, postingTag } = req.body;
   try {
@@ -52,6 +55,7 @@ const postModify = async (req, res) => {
     res.status(400).json({ msg: '수정에 실패했습니다' });
   }
 };
+//포스트 삭제하기
 const postDelete = async (req, res) => {
   const { PostID } = req.body;
   try {
