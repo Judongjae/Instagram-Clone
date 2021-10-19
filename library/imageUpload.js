@@ -21,7 +21,7 @@ const upload = multer({
       {
         id: 'original',
         key: function (req, file, cb) {
-          cb(null, 'image-original.jpg');
+          cb(null, `${Date.now()}${file.originalname}`); //use Date.now() for unique file keys
         },
         transform: function (req, file, cb) {
           //Perform desired transformations
