@@ -16,10 +16,10 @@ const authSchema = new Schema({
   },
 });
 
-authSchema.virtual('userID').get(function () {
+authSchema.virtual("userID").get(function() {
   return this._id.toHexString();
 });
-commentSchema.set('toJSON', {
+authSchema.set("toJSON", {
   virtuals: true,
 });
 

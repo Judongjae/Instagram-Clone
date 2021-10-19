@@ -3,7 +3,7 @@ const express = require("express");
 const {} = require("../controller/auth");
 //필요한게 있을떄 적으면 될듯
 const router = express.Router();
-const comment = require("../controller/comment");
+const Comment = require("../models/comment");
 
 //댓글 추가 (로그인 권한 필요)
 router.post("/replyPost", auth.isAuth, async (req, res) => {
