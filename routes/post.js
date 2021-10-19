@@ -14,7 +14,7 @@ router.get('/postList', postList);
 //상세 게시글 조회하기
 router.get('/inspect/:postID', postDetail);
 //게시글 등록하기
-router.post('/posting', authMiddleware, upload.single('img'), posting);
+router.post('/posting', upload.single('img'), posting);
 //게시글 수정
 router.patch('/postModify', authMiddleware, postModify);
 //게시글 삭제

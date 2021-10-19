@@ -4,7 +4,7 @@ const Post = require('../models/post');
 const posting = async (req, res) => {
   const postingData = req.body;
   const [useDate] = new Date().toISOString().split('T');
-
+  console.log(req.file);
   const createPosting = new Post({
     ...postingData,
     postingImgUrl: req.file.location,
